@@ -4136,6 +4136,28 @@ class Riecoin(Coin):
         return hex_str_to_hash(riecoin.riecoin_hash(hash_to_hex_str(header[::-1])))
 
 
+class Pepecoin(AuxPowMixin, Coin):
+    NAME = "Pepecoin"
+    SHORTNAME = "PEP"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("02facafd")
+    XPRV_VERBYTES = bytes.fromhex("02fac398")
+    P2PKH_VERBYTE = bytes.fromhex("38")
+    P2SH_VERBYTES = (bytes.fromhex("16"),)
+    WIF_BYTE = bytes.fromhex("9e")
+    GENESIS_HASH = ('37981c0c48b8d48965376c8a42ece9a0'
+                    '838daadb93ff975cb091f57f8c2a5faa')
+    PEERS = [
+        'electrum.pepeblocks.com t50001 s50002',
+        'electrum.pepelum.site t50001 s50002',
+    ]
+    TX_COUNT = 121100
+    TX_COUNT_HEIGHT = 86777
+    TX_PER_BLOCK = 20
+    REORG_LIMIT = 2000
+    DESERIALIZER = lib_tx.DeserializerAuxPowSegWit
+
+
 class Ferrite(Coin):
     NAME = "Ferrite"
     SHORTNAME = "FEC"
